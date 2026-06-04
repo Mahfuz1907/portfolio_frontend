@@ -137,12 +137,13 @@ export const generateCV = async ({ profile, skills, projects, certificates }) =>
     y += 2;
   }
 
-  // ── Projects ──
-  if (projects?.length) {
+  // ── Projects ── (featured only)
+  const featuredProjects = projects?.filter(p => p.featured) || [];
+  if (featuredProjects.length) {
     checkPage(30);
     section('PROJECTS');
 
-    projects.forEach(p => {
+    featuredProjects.forEach(p => {
       checkPage(28);
 
       doc.setFont('helvetica', 'bold');
