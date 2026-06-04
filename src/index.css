@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #64FFDA;
+  --dark: #0A0E1A;
+  --card: #111827;
+}
+
+* { scroll-behavior: smooth; }
+
+body {
+  background-color: #0A0E1A;
+  color: #CBD5E1;
+  font-family: 'DM Sans', sans-serif;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0E1A; }
+::-webkit-scrollbar-thumb { background: #64FFDA44; border-radius: 3px; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #F1F5F9;
+}
+
+.highlight { color: #64FFDA; }
+
+.card-hover {
+  transition: all 0.3s ease;
+  border: 1px solid #1F2937;
+}
+.card-hover:hover {
+  border-color: #64FFDA44;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(100,255,218,0.08);
+}
+
+.nav-link {
+  position: relative;
+  color: #94A3B8;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: #64FFDA;
+  transition: width 0.3s;
+}
+.nav-link:hover { color: #64FFDA; }
+.nav-link:hover::after { width: 100%; }
+
+.skill-bar {
+  height: 4px;
+  background: #1F2937;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #64FFDA, #00BCD4);
+  border-radius: 2px;
+  transition: width 1.5s ease;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.float { animation: float 4s ease-in-out infinite; }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px #64FFDA33; }
+  50% { box-shadow: 0 0 30px #64FFDA66; }
+}
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
